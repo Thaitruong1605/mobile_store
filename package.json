@@ -1,0 +1,24 @@
+{
+  "name": "mobile_store",
+  "version": "1.0.0",
+  "description": "Do an nien luan co so ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thaitruong1605/mobile_store.git"
+  },
+  "author": "thai b1706641",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thaitruong1605/mobile_store/issues"
+  },
+  "homepage": "https://github.com/Thaitruong1605/mobile_store#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
