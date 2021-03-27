@@ -1,4 +1,4 @@
-rrrvar bcrypt = require("bcryptjs"); // hash password
+var bcrypt = require("bcryptjs"); // hash password
 var mongoose = require("mongoose");
 
 var userChema ={
