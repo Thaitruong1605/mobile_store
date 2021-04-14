@@ -6,10 +6,19 @@
 <body>
     <header><%- include('../partials/header') %></header>
     <div class="container">
-        <form name="frmSigin" id="frmSigin" action="" method="POST"> 
+        <% if(error && error.length > 0 ){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+          <% } %>
+        <form name="frmRegister" id="frmRegister" action="/register" method="POST"> 
             <div class="form-group">
                 <label for="username">Tên đăng nhập</label>
                 <input name="username" id="username" value="" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input name="email" id="email" value="" class="form-control" />
             </div>
             <div class="form-group">
                 <label for="password">Mật khẩu</label>

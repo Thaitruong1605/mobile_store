@@ -12,33 +12,36 @@ module.exports = function(){
             done(err,user);
         })
     });
-    passport.use("login",new LocalStrategy({
-        usernameField:'email',
+    passport.use("signin",new LocalStrategy({
+        usernameField:'username',
         passwordField:'password'
-    },function(email, password, done){
-        User.findOne({email: email}, function(err, user){
+    },function(username, password, done){
+        User.findOne({username: username}, function(err, user){
             if(err){ 
+                console.log(err);
                 return done(err);
             }
             if(!user){
-                return done(null, false, {message:"Email hợp lệ!"});
+                return done(null, false, {message:"username hợp lệ!"});
             }
+
             user.checkPassword(password, function(err, isMatch){
+                console.log("checking password ----------------------------");
                 if(err){ return done(err);}
-                if(isMatch){
-                    return done(null, false, {message:"Email không được đăng ký!"});
+                if(!isMatch){
+                    return done(null, false, {message:"Tài khoảng chưa được đăng ký!"});
                 }
                 user.checkPassword(password, function(err, isMatch){
                     if(err){
                         return done(err);
                     }
-                    else if (isMatch){
+                    if (isMatch){
                         return done(err,user);
                     }
-                    else if (!isMatch){
-                        return done(null, false, {message:"Sai mật khẩu!"});
-                    }
-                })
+                    // !isMatch
+                    return done(null, false, {message:"Sai mật khẩu!"});
+                });
+                
             })
         });
     }));
