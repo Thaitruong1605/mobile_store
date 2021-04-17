@@ -1,5 +1,5 @@
-var bcrypt = require("bcryptjs"); // hash password
-var mongoose = require("mongoose");
+const bcrypt = require("bcryptjs"); // hash password
+const mongoose = require("mongoose");
 
 const SALT_FACTOR = 10; // Chuỗi được thêm vào để phức tạp hoá mật khẩu
 

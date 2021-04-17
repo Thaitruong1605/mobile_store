@@ -31,7 +31,9 @@ app.use(passport.session());
 app.use(flash());
 
 app.use("/", require("./routes/web"));
+app.use("/backend",require("./routes/backend"));
 app.use("/api", require("./routes/api"));
+
 
 
 app.listen(app.get("port"), function(){

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- head -->
+<%- include('./../../layouts/head'); %>
+<body>
+    <!-- sitebar -->
+    <%- include('./../../partials/sitebar.ejs'); %>
+    
+    <div class="container">
+        <h1>THÊM NHÀ SẢN XUẤT</h1>
+        <hr />
+        <form action="" name="frmCraeteBrand" method="upload/post" enctype="multipart/form-data">
+            <div class="form-group"> 
+                <label for="txtName">Tên nhà sản xuất: </label>
+                <input name="txtName" id="txtName" class="form-control" value="" />
+            </div>
+            <div class="form-group">
+                <label for="igmLogo">Logo nhà sản xuất</label>
+                <input type="file" name="igmLogo" class="input-group input-file"/>
+            </form>
+
+            <button type="submit" name="btnSave" class="btn btn-primary" >Lưu</button>
+        </form> 
+    </div>
+    <!-- footer -->
+    <%- include('./../../partials/footer.ejs'); %>
+    
+
+</body>
+</html>

@@ -6,6 +6,16 @@
 <body>
     <header><%- include('../partials/header') %></header>
     <div class="container">
+        <% if(error && error.length > 0 ){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error; %>
+            </div>
+          <% } %>
+        <% if(alert && alert.length > 0 ){ %>
+            <div class="alert alert-warning" role="alert">
+                <%= alert; %>
+            </div>
+          <% } %>
         <form name="frmSigin" id="frmSigin" action="" method="POST"> 
             <div class="form-group">
                 <label for="username">Tên đăng nhập</label>

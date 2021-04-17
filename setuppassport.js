@@ -22,26 +22,15 @@ module.exports = function(){
                 return done(err);
             }
             if(!user){
-                return done(null, false, {message:"username hợp lệ!"});
+                return done(null, false, {message:"Tài khoản không tồn tại!"});
             }
 
             user.checkPassword(password, function(err, isMatch){
-                console.log("checking password ----------------------------");
                 if(err){ return done(err);}
                 if(!isMatch){
-                    return done(null, false, {message:"Tài khoảng chưa được đăng ký!"});
-                }
-                user.checkPassword(password, function(err, isMatch){
-                    if(err){
-                        return done(err);
-                    }
-                    if (isMatch){
-                        return done(err,user);
-                    }
-                    // !isMatch
                     return done(null, false, {message:"Sai mật khẩu!"});
-                });
-                
+                }
+                return done(err,user);
             })
         });
     }));

@@ -1,15 +1,20 @@
 var express = require("express");
 var passport = require("passport");
 
+var login_required = require("../../auth/auth").ensureAuthenticated;
+
 var User = require("../../models/user");
 
 var router = express.Router();
 
 router.get("/", function (req, res) {
-    res.render("./", { pages_name: "Mobile store" });
+    res.render("./", { page_name: "Mobile store" });
+});
+router.get("/cart", login_required ,function(req, res){
+    res.render("./pages/cart");
 });
 router.get("/signin", function (req, res) {
-    res.render("./auth/signin", { pages_name: "Đăng nhập - Mobile store" });
+    res.render("./auth/signin", { page_name: "Đăng nhập - Mobile store" });
 });
 router.post("/signin", passport.authenticate("signin", {
     successRedirect: "/",
@@ -17,7 +22,7 @@ router.post("/signin", passport.authenticate("signin", {
     failureFlash: true
 }));
 router.get("/register", function (req, res) {
-    res.render("./auth/register", { pages_name: "Mobile store - Register" });
+    res.render("./auth/register", { page_name: "Mobile store - Register" });
 });
 router.post("/register", function (req, res, next) {
     var username = req.body.username;

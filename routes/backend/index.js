@@ -9,6 +9,5 @@ router.use(function(req,res,next){
     next(); // đi đến route tiếp theo
 })
 
-router.use("/",require("./home"));
-
+router.use("/",require("./function"));
 module.exports = router;
