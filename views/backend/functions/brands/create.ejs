@@ -12,19 +12,35 @@
         <form action="" name="frmCraeteBrand" method="upload/post" enctype="multipart/form-data">
             <div class="form-group"> 
                 <label for="txtName">Tên nhà sản xuất: </label>
-                <input name="txtName" id="txtName" class="form-control" value="" />
+                <input type="text" name="txtName" id="txtName" class="form-control" value="" />
             </div>
             <div class="form-group">
-                <label for="igmLogo">Logo nhà sản xuất</label>
-                <input type="file" name="igmLogo" class="input-group input-file"/>
-            </form>
+                <label for="hsp_tentaptin">Tập tin ảnh</label>
 
+                <!-- Input cho phép người dùng chọn FILE -->
+                <input type="file" class="form-control" id="hsp_tentaptin" name="hsp_tentaptin">
+                <!-- Tạo khung div hiển thị ảnh cho người dùng Xem trước khi upload file lên Server -->
+                <div class="preview-img-container">
+                    <img src="/uploads\\products\\default-image_600.png" id="preview-img" width="200px" />
+                </div>
+            </div>
             <button type="submit" name="btnSave" class="btn btn-primary" >Lưu</button>
         </form> 
     </div>
     <!-- footer -->
     <%- include('./../../partials/footer.ejs'); %>
-    
+    <script>
+        const reader = new FileReader();
+        const fileInput = document.getElementById("hsp_tentaptin");
+        const img = document.getElementById("preview-img");
+        reader.onload = e => {
+            img.src = e.target.result;
+        }
+        fileInput.addEventListener('change', e => {
+            const f = e.target.files[0];
+            reader.readAsDataURL(f);
+        })  
+    </script>
 
 </body>
 </html>
